@@ -14,7 +14,7 @@ export const  signUp = async (req, res)=>{
         }
  
         const checkEmail = await Profile.findOne({email});
-
+        console.log(checkEmail);
         if( checkEmail){
             res.status(400).json({error:"email already registered"});
         }
@@ -67,7 +67,7 @@ export const  signUp = async (req, res)=>{
   
      }
      catch(e){
-        console.log("Error in signup controller", e.message);
+        console.log("Error in signup controller", e);
         res.status(500).json({error:"Internal server error"});
      }
 }
@@ -80,7 +80,7 @@ const login = async (req, res)=>{
         
         const user = await Profile.findOne({email});
         const passCheck = await bcrypt.compare(password, user?.password || "");
-
+        console.log(user);
         if(!user || !passCheck){
             res.status(400).json({error:"user credentials are wrong"});
         }
