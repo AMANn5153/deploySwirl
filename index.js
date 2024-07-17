@@ -17,7 +17,7 @@ const PORT = process.env.PORT || 3001;
 
 // Configure CORS options
 const corsOptions = {
-  origin: 'http://localhost:3000/', // Replace with your client origin
+  origin: 'https://swirl-1ms3.onrender.com', // Replace with your client origin
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE', // Allowed methods
   allowedHeaders: 'Content-Type,Authorization', // Allowed headers
   credentials: true, // Allow cookies and authentication headers
