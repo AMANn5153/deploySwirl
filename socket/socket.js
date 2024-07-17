@@ -13,7 +13,7 @@ const app = express();
  const server = http.createServer(app);
  const io = new Server(server,{
     cors: {
-        origin: 'http://localhost:3000', // Replace with your client origin
+        origin: 'https://swirl-1ms3.onrender.com/', // Replace with your client origin
         methods: 'GET,HEAD,PUT,PATCH,POST,DELETE', // Allowed methods
         allowedHeaders: 'Content-Type,Authorization', // Allowed headers
         credentials: true, // Allow cookies and authentication headers
@@ -39,7 +39,7 @@ const app = express();
 
     // listing to event
     socket.on("disconnect", ()=>{
-        console.log("disconnected", socket.id);
+       
         delete onlineUsers[userId];
         io.emit("getOnlineUsers", Object.keys(onlineUsers));
     });
