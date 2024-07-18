@@ -9,7 +9,9 @@ dotenv.config();
 passport.use(new GoogleStrategy({
     clientID: process.env.GOOGLE_CLIENT_ID,
     clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-    callbackURL: 'https://swirl-1ms3.onrender.com/api/auth/google/callback'
+    callbackURL: 'https://swirl-1ms3.onrender.com/api/auth/google/callback',
+    scope: ['profile', 'email'],
+    prompt: 'select_account'
   }, async (accessToken, refreshToken, profile, done) => {
     try {
       let user = await Profile.findOne({email :  profile.emails[0].value});
