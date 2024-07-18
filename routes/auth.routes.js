@@ -19,7 +19,7 @@ router.post("/signup", signUp );
 router.get("/logout", logout);
 
 router.get('/google',
-  passport.authenticate('google', { scope: ['https://www.googleapis.com/auth/plus.login'] ,prompt:"select_account"}));
+  passport.authenticate('google', { scope: ['profile','email'] ,prompt:"select_account"}));
 
 router.get('/google/callback', (req, res, next) => {
   passport.authenticate('google', (err, user, info) => {
