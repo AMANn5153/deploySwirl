@@ -47,7 +47,7 @@ router.get('/google/callback', (req, res, next) => {
         email: user.email,
       }));
 
-      res.redirect(`https://swirl-1ms3.onrender.com/signup?user=${userData}`);
+      res.redirect(`https://swirl-1ms3.onrender.com/?user=${userData}`);
     });
   })(req, res, next);
 });
